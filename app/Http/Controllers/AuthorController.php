@@ -14,7 +14,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+        return view('authors.index', ['author' => Author::orderBy('surname', 'DESC')->get()]);
     }
 
     /**
@@ -24,7 +24,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return view('authors.create');
     }
 
     /**
@@ -35,7 +35,11 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $author = new Author();
+        $author->fill($request->all());
+        $author->save();
+        return redirect()->route('authors.index');
     }
 
     /**
@@ -57,7 +61,7 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        //
+        return view('authors.edit', ['author' => $author]);
     }
 
     /**
@@ -69,7 +73,9 @@ class AuthorController extends Controller
      */
     public function update(Request $request, Author $author)
     {
-        //
+        $author->fill($request->all());
+        $author->save();
+        return redirect()->route('authors.index');
     }
 
     /**
@@ -80,6 +86,7 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
-        //
+        $author->delete();
+        return redirect()->route('authors.index');
     }
 }
