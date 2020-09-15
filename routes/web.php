@@ -14,14 +14,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::middleware(['auth'])->group(function () {
+Route::get('/', 'BookController@index');
 Route::resource('authors', 'AuthorController');
 Route::resource('books', 'BookController');
+});
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
