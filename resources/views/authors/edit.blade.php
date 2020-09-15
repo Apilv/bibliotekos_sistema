@@ -10,11 +10,11 @@
                         @csrf @method("PUT")
                         <div class="form-group">
                             <label for="">Vardas</label>
-                            <input type="text" name="name" class="form-control" value="{{ $author->name }}">
+                            <input type="text" name="name" class="form-control" required value="{{ $author->name }}">
                         </div>
                         <div class="form-group">
                             <label for="">Pavarde</label>
-                            <input type="text" name="surname" class="form-control" value="{{ $author->surname }}">
+                            <input type="text" name="surname" class="form-control" required value="{{ $author->surname }}">
                         </div>
                         <button type="submit" class="btn btn-primary">Pakeisti</button>
                     </form>

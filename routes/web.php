@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::resource('authors', 'AuthorController');
-Route::resource('country', 'BookController');
+Route::resource('books', 'BookController');
 
 
 Auth::routes();

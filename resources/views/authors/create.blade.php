@@ -10,11 +10,11 @@
                        @csrf
                        <div class="form-group">
                            <label>Vardas: </label>
-                           <input type="text" name="name" class="form-control">
+                           <input type="text" name="name" required class="form-control">
                        </div>
                        <div class="form-group">
                            <label>Pavarde: </label>
-                           <input type="text" name="surname" class="form-control"> 
+                           <input type="text" name="surname" required class="form-control"> 
                        </div>
                        <button type="submit" class="btn btn-primary">Submit</button>
                    </form>
